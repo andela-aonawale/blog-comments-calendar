@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang='en' ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>Calendar application</title>
+    <link rel="stylesheet" href="./assets/css/angular-material.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  </head>
+  <body layout="column">
+
+    <!-- Navigation bar -->
+    <nav id="navigation">
+      <md-content>
+        <md-toolbar>
+          <h2 class="md-toolbar-tools">
+            <span>Calendar</span>
+          </h2>
+        </md-toolbar>
+      </md-content>
+    </nav>
+
+    <!-- Calendar content -->
+    <section ng-controller="MonthController as register" layout="column">
+
+      <!-- <month-example></month-example> -->
+
+      <!-- Month Selector -->
+      <md-tabs md-selected="register.selectedMonth" flex>
+
+        <!-- Month -->
+        <md-tab ng-repeat="month in register.months" label="{{ month.monthName }}">
+
+          <!-- Month content -->
+          <div>
+            <!-- Day Labels -->
+            <div layout="row" layout-margin>
+              <div flex>
+                Sunday
+              </div>
+              <div flex>
+                Monday
+              </div>
+              <div flex>
+                Tuesday
+              </div>
+              <div flex>
+                Wednesday
+              </div>
+              <div flex>
+                Thursday
+              </div>
+              <div flex>
+                Friday
+              </div>
+              <div flex>
+                Saturday
+              </div>
+            </div>
+
+            <md-grid-list
+                md-cols-gt-md="7" md-row-height="1:1" md-gutter="4px">
+              <md-grid-tile
+                  class="grey"
+                  ng-repeat="day in month.days"
+                  ng-click="register.showEventModal($event, day.id, null, register.editing, register.adding)">
+
+                  <md-subheader class="md-accent" ng-repeat="event in day.events">{{ event.title }}</md-subheader>
+
+                  <md-grid-tile-footer><h3>{{ day.id }}</h3></md-grid-tile-footer>
+
+              </md-grid-tile>
+            </md-grid-list>
+
+        </md-tab>
+      </md-tabs>
+    </section>
+
+    <!-- Vendor script files -->
+    <script src="./assets/vendor/angular.js"></script>
+    <script src="./assets/vendor/angular-animate.js"></script>
+    <script src="./assets/vendor/angular-aria.js"></script>
+    <script src="./assets/vendor/angular-material.js"></script>
+    <script src="./assets/vendor/angular-mocks.js"></script>
+    <script src="./assets/vendor/ngStorage.js"></script>
+
+    <!-- Application script files -->
+    <script src="./app/app.js"></script>
+    <script src="./app/event/event.module.js"></script>
+    <script src="./app/event/services/month.service.js"></script>
+    <script src="./app/event/controllers/month.controller.js"></script>
+    <script src="./app/event/controllers/day.controller.js"></script>
+    <script src="./app/event/directives/month.directive.js"></script>
+  </body>
+</html>
