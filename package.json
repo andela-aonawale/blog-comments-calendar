@@ -1,0 +1,31 @@
+{
+  "name": "blog-comments-calendar",
+  "version": "1.0.0",
+  "description": "A simple calendar with comments.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andela-aonawale/blog-comments-calendar.git"
+  },
+  "keywords": [
+    "calendar",
+    "angular",
+    "comments"
+  ],
+  "author": "Ifeanyi Oraelosi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andela-aonawale/blog-comments-calendar/issues"
+  },
+  "homepage": "https://github.com/andela-aonawale/blog-comments-calendar",
+  "dependencies": {},
+  "devDependencies": {
+    "jasmine-core": "^2.2.0",
+    "karma": "^0.12.31",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.1.4"
+  }
+}
