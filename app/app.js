@@ -1,9 +1,12 @@
 (function () {
   'use strict';
 
-  var app = angular.module('app', [
-    'event',
-    'ngMaterial'
+  var app = angular.module('CommentsApp', [
+    //'event',
+    'ngMaterial',
+    'CommentsModule',
+    'CommentForm',
+    'PostBody'
   ])
   .config(function ($mdThemingProvider) {
     $mdThemingProvider.theme('default')
