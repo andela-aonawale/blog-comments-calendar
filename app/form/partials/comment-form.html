@@ -1,0 +1,27 @@
+<form name="commentForm" ng-submit="commentForm.$valid && commentCtrl.addComment()" novalidate>
+    <md-input-container>
+        <label>Leave a comment</label>
+        <textarea name="commentBox" ng-model="commentCtrl.comment.text" required></textarea>
+        <div ng-messages="commentForm.text.$error" ng-show="commentForm.text.$dirty">
+            <div ng-message="required">This is required!</div>
+        </div>
+    </md-input-container>
+
+    <md-input-container>
+        <label>Name</label>
+            <input type="text" name="name" ng-model="commentCtrl.comment.name" placeholder="Enter your name.." required>
+        <div ng-messages="commentForm.name.$error" ng-show="commentForm.commentBox.$dirty && commentForm.name.$pristine">
+            <div ng-message="required">This is required!</div>
+        </div>
+    </md-input-container>
+
+    <md-input-container>
+        <label>Email</label>
+        <input type="email" name="email" ng-model="commentCtrl.comment.email" required placeholder="ahmed.onawale@andela.co">
+        <div ng-messages="commentForm.email.$error" ng-show="commentForm.commentBox.$dirty && commentForm.email.$invalid">
+            <div ng-message="required">This is required!</div>
+        </div>
+    </md-input-container>
+    <md-button type="submit" class="md-primary md-raised">Submit</md-button>
+</form>
+

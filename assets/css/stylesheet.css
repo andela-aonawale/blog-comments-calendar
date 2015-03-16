@@ -1,0 +1,163 @@
+.ng-invalid.ng-dirty{
+    border-color: #ff0b39;
+}
+.ng-valid.ng-dirty{
+    border-color: green;
+}
+
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: #777;
+    border-radius: 15px;
+}
+
+html {
+    font-size: 10px;
+
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+    font-family: RobotoDraft, Roboto, 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+
+h1 {
+    margin: .67em 0;
+    font-size: 2em;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+h1 {
+    margin: .67em 0;
+    font-size: 2em;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+h1{
+    font-size: 36px;
+}
+h2{
+    font-size: 30px;
+}
+h3{
+    font-size: 24px;
+}
+h4{
+    font-size: 18px;
+}
+h5{
+    font-size: 14px;
+}
+h6 {
+    font-size: 12px;
+}
+p {
+    margin: 0 0 10px;
+}
+
+#post-body-inner{
+    padding: 20px;
+}
+.btncomment{
+    display: inline-block;
+    margin: -35px 0 0 600px;
+}
+#form{
+    margin-left: 215px;
+    margin-bottom: 30px;
+    width: 700px;
+}
+#text-area{
+    width: 700px;
+    margin: 0 0 0 30px;
+}
+.block-text{
+    font-size: 14px
+}
+.heading{
+    padding-left: 20px;
+    margin-bottom: 30px
+}
+#sub-heading{
+    margin: 0 20px 30px 60px;
+}
+.block-comments{
+    width: 800px;
+    padding: 10px 20px 0 20px;
+    margin: 10px 0 0 165px;
+}
+.comments{
+    width: 700px;
+    padding: 10px;
+    font-size: 16px;
+    display: block;
+}
+.btnsave{
+    margin: -25px 20px 0 0;
+    float: right;
+    width: 30px;
+    height: 30px;
+}
+.thumbs-edit:hover{
+    color: rgb(63,81,181);
+}
+.delete:hover{
+    color: red;
+}

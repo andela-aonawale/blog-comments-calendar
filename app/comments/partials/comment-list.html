@@ -1,0 +1,37 @@
+
+<md-card ng-repeat="coms in commentCtrl.comments" class="block-comments" ng-show="coms.shw">
+    <div class="comments"><p>{{coms.text}}</p>
+    <p><strong>By:</strong> <span class="block-text">{{coms.name}}</span></p>
+    <p><strong>Email:</strong> <span class="block-text">{{coms.email}}</span></p>
+    <footer>On {{coms.date | date: 'medium'}}</footer>
+    </div>
+    <div class="btncomment" ng-show="coms.show">
+        <span class="thumbs-edit"><md-icon md-svg-icon="./assets/font/material-design-icons/ic_thumb_up_24px.svg"
+                        ng-click="commentCtrl.addVote(coms)"></md-icon>
+        </span>
+        <span class="badge">{{coms.upvote}}</span>
+
+        <span class="thumbs-edit"><md-icon md-svg-icon="./assets/font/material-design-icons/ic_thumb_down_24px.svg"
+                       ng-click="commentCtrl.remVote(coms)"></md-icon>
+        </span>
+        <span class="badge">{{coms.downvote}}</span>
+
+        <span class="thumbs-edit"><md-icon md-svg-icon="./assets/font/material-design-icons/ic_create_24px.svg"
+                       ng-click="commentCtrl.editComment(coms)"></md-icon>
+        </span>
+
+        <span class="delete"><md-icon md-svg-icon="./assets/font/material-design-icons/ic_delete_24px.svg"
+                       ng-click="commentCtrl.deleteComment(coms)"></md-icon>
+        </span>
+
+    </div>
+
+    <md-input-container>
+        <form ng-show="coms.hide" novalidate>
+            <textarea id="text-area" ng-model="coms.text"></textarea>
+                <md-icon class="btnsave" md-svg-icon="./assets/font/material-design-icons/ic_done_all_48px.svg"
+                      ng-click="commentCtrl.saveComment(coms)"></md-icon>
+        </form>
+    </md-input-container>
+
+</md-card>

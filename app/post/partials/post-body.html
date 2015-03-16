@@ -1,0 +1,29 @@
+
+<div layout="column" >
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <span>[FIX] Windows 8 Freezing On Macbook Pro Using Bootcamp Drivers</span>
+            <!-- fill up the space between left and right area -->
+            <span flex></span>
+            <md-button>
+                By Ahmed Onawale
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-content>
+        <md-card>
+            <div id="post-body-inner">
+        <p>
+            When windows 8 consumer preview first came out, I downloaded and installed it on my MacBook using a virtual machine just to see what it looked like. Now that it has been launched officially, I then decided to partition my Mac's hard drive using bootcamp and I installed windows 8 with an external hard drive.
+        </p>
+        <p>The installation went well, I installed bootcamp 4.0 drivers for windows 7 since Apple haven't released bootcamp drivers for windows 8. Then I noticed something weird, windows 8 keeps freezing randomly. I then googled out some solutions, some of which include enabling Hyper V, disabling dynamic tick and updating Nvidia drivers for windows 8 but none of them seems to work as the problem persist.
+        </p>
+        <p>I finally figured out what was causing the freezes on windows 8, it had something to do with the processor cacheing activities going on in the background while you use windows. Luckily there is a way to disable this option from the system setting. I did that and it worked. Google chrome is also a major contributor to the freezing problem on windows 8, so if problem continues while using chrome, the only solution to this is not to use chrome at all.
+        </p>
+        <p>And that was how I fixed the problem on windows 8. If windows 8 keep freezing on your Mac after doing all these, then you can be sure of only one thing, Google chrome. Like I said earlier the only solution left is not to use chrome at all.</p>
+
+<md-button class="md-primary" ng-href="http://techsentral.blogspot.com/2013/03/windows-8-freezing-hanging-on-macbook.html">Source</md-button>
+            </div>
+        </md-card>
+    </md-content>
+</div>
