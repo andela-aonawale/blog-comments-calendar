@@ -1,14 +1,23 @@
 'use strict';
 
 angular.module('event')
-  .controller('MonthController', ['MonthService', '$mdDialog', function (MonthService, $mdDialog) {
+  .controller('MonthController', ['MonthService', '$mdDialog', '$scope', function (MonthService, $mdDialog, $scope) {
+    MonthService.init();
     var register = this;
 
     register.months = MonthService.getMonths();
 
-    register.selectedMonth = 2;
+    register.selectedMonth = MonthService.getCurrentMonth();
+    register.days = MonthService.getDays();
 
-    register.current = 0;
+    $scope.$watch(angular.bind(register, function () {
+      return register.selectedMonth;
+    }), function (newValue, oldValue) {
+      MonthService.setCurrentMonth(newValue);
+      register.days = MonthService.getDays();
+    });
+
+    register.current = null;
 
     register.eventID = null;
     register.dayID = null;
@@ -17,26 +26,29 @@ angular.module('event')
     register.editing = false;
 
     register.showEventModal = function (ev, dayID, eventID, editing, adding) {
-      register.current = dayID;
-      $mdDialog.show({
-        controller: 'DayController',
-        controllerAs: 'register',
-        templateUrl: './app/event/partials/new.event.partial.html',
-        targetEvent: ev,
-        locals: {
-          currentMonth: register.selectedMonth,
-          currentDay: dayID,
-          currentEvent: eventID,
-          editing: editing,
-          adding: adding
-        }
-      })
-      .then(function (answer) {
+      if (dayID) {
+        MonthService.setCurrentMonth(register.selectedMonth);
+        MonthService.setCurrentDay(dayID);
+        $mdDialog.show({
+          controller: 'DayController',
+          controllerAs: 'register',
+          templateUrl: './app/event/partials/new.event.partial.html',
+          targetEvent: ev,
+          locals: {
+            currentEvent: eventID,
+            editing: editing,
+            adding: adding
+          }
+        })
+        .then(function (answer) {
 
-      },
-      function () {
+        },
+        function () {
 
-      });
+        });
+      } else {
+        return false;
+      }
     };
 
   }]);

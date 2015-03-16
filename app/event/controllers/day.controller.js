@@ -1,20 +1,17 @@
 'use strict';
 
 angular.module('event')
-  .controller('DayController', ['MonthService', 'currentMonth', 'currentDay', 'currentEvent', 'editing', 'adding', '$scope', function (MonthService, currentMonth, currentDay, currentEvent, editing, adding, $scope) {
+  .controller('DayController', ['MonthService', 'currentEvent', 'editing', 'adding', '$scope', function (MonthService, currentEvent, editing, adding, $scope) {
     var register = this;
 
-    register.firstDayID = MonthService.getFirstDayID(currentMonth);
-
-    register.dayID = (currentDay ? currentDay : 1) - 1 + register.firstDayID;
-    register.selectedMonth = currentMonth;
+    register.selectedMonth = MonthService.getCurrentMonth();
     register.eventID = currentEvent;
 
     register.adding = true;
     register.editing = false;
 
     register.months = MonthService.getMonths();
-    register.events = register.months[register.selectedMonth].days[register.dayID].events;
+    register.events = MonthService.getEvents();
 
     register.prepareEdit = function (eventID, eventData) {
       register.editing = true;
@@ -23,11 +20,12 @@ angular.module('event')
       register.eventID = eventID;
     };
 
+    // Add an event
     register.addEvent = function (eventData) {
       var newEvent = {};
       newEvent.title = eventData.title;
 
-      MonthService.addEvent(register.selectedMonth, register.dayID, newEvent);
+      MonthService.addEvent(newEvent);
     };
 
     register.saveEvent = function (newEventData) {
@@ -41,8 +39,7 @@ angular.module('event')
     };
 
     register.removeEvent = function (eventID) {
-
-      MonthService.removeEvent(register.selectedMonth, register.dayID, eventID);
+      MonthService.removeEvent(eventID);
     };
 
   }]);
