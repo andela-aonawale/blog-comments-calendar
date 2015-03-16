@@ -30,7 +30,7 @@
       <md-tabs md-selected="register.selectedMonth" flex>
 
         <!-- Month -->
-        <md-tab ng-repeat="month in register.months" label="{{ month.monthName }}">
+        <md-tab ng-repeat="month in register.months" label="{{ month}}">
 
           <!-- Month content -->
           <div>
@@ -63,7 +63,7 @@
                 md-cols-gt-md="7" md-row-height="1:1" md-gutter="4px">
               <md-grid-tile
                   class="grey"
-                  ng-repeat="day in month.days"
+                  ng-repeat="day in register.days"
                   ng-click="register.showEventModal($event, day.id, null, register.editing, register.adding)">
 
                   <md-subheader class="md-accent" ng-repeat="event in day.events">{{ event.title }}</md-subheader>
@@ -84,6 +84,7 @@
     <script src="./assets/vendor/angular-material.js"></script>
     <script src="./assets/vendor/angular-mocks.js"></script>
     <script src="./assets/vendor/ngStorage.js"></script>
+    <script src="./assets/vendor/moment.js"></script>
 
     <!-- Application script files -->
     <script src="./app/app.js"></script>
