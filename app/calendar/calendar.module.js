@@ -1,5 +1,5 @@
 'use strict';
 
-angular.module('event', [
+angular.module('calendar', [
   'ngStorage'
 ]);

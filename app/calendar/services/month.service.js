@@ -1,5 +1,5 @@
-angular.module('event')
-  .factory('MonthService', ['$http', '$localStorage', function ($http, $localStorage) {
+angular.module('calendar')
+  .factory('MonthService', ['$http', '$localStorage', '$location', function ($http, $localStorage, $location) {
 
   return {
     today: null,
@@ -96,6 +96,12 @@ angular.module('event')
 
     setCurrentDay: function (dayID) {
       this.today.set('date', dayID);
+    },
+
+    goToEventList: function (monthID, dayID) {
+      if (angular.isNumber(dayID)) {
+        $location.path('calendar/' + monthID + '/' + dayID);
+      }
     }
   };
 

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('event')
+angular.module('calendar')
   .controller('DayController', ['MonthService', 'currentEvent', 'editing', 'adding', '$scope', function (MonthService, currentEvent, editing, adding, $scope) {
     var register = this;
 
