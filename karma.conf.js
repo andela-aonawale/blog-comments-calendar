@@ -17,11 +17,13 @@ module.exports = function(config) {
     files: [
       './assets/vendor/angular.js',
       './assets/vendor/angular-mocks.js',
+      './assets/vendor/angular-route.js',
+      './assets/vendor/moment.js',
       './assets/vendor/ngStorage.js',
-      './app/event/event.module.js',
-      './app/event/controllers/**/*.js',
-      './app/event/services/**/*.js',
-      './app/event/tests/**/*.js'
+      './app/calendar/calendar.module.js',
+      './app/calendar/controllers/**/*.js',
+      './app/calendar/services/**/*.js',
+      './app/calendar/tests/**/*.js'
     ],
 
 
