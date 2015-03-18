@@ -7,7 +7,8 @@
     'calendar',
     'CommentsModule',
     'CommentForm',
-    'PostBody'
+    'PostBody',
+    //'events'
   ])
   .config(function ($routeProvider, $mdThemingProvider) {
 
@@ -18,12 +19,12 @@
         controller: 'MonthController',
         controllerAs: 'register'
       })
-      .when('/calendar/:day_id', {
+      .when('/calendar/:month_id/:day_id', {
         templateUrl: './app/events/partials/events.partial.html',
         controller: 'EventController',
         controllerAs: 'eventList'
       })
-      .when('/calendar/:day_id/events/:event_id', {
+      .when('/calendar/:month_id/:day_id/events/:event_id', {
         templateUrl: './app/comments/partials/comments.partial.html',
         controller: 'CommentsController',
         controllerAs: 'commentCtrl'
