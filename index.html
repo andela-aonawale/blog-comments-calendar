@@ -1,44 +1,59 @@
-<!DOCTYPE html>
-<html ng-app="CommentsApp">
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Blog comments</title>
-    <link type="text/css" rel="stylesheet" href="assets/css/angular-material.css"/>
-    <link type="text/css" rel="stylesheet" href="assets/css/stylesheet.css"/>
-</head>
-<body ng-controller="CommentsController as commentCtrl">
-<div >
-<md-toolbar class="md-tall md-primary heading">
-    <h1><span id="heading">Blog Comments</span></h1>
-    <p id="sub-heading">Blog comments app built with Angular JS, designed with Angular JS material design & material design icons</p>
-</md-toolbar>
-</div>
-<div class="container">
-   <blog-post></blog-post>
-        <div layout="column">
+<!doctype html>
+<html lang="en" ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>Candelar</title>
+        <link type="text/css" rel="stylesheet" href="assets/css/angular-material.css"/>
+        <link type="text/css" rel="stylesheet" href="assets/css/stylesheet.css"/>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    </head>
+    <body layout="column" ng-controller="CommentsController as commentCtrl">
+
+        <!-- Navigation bar -->
+        <nav id="navigation">
+          <md-content>
             <md-toolbar>
-                <div class="md-toolbar-tools">
-                    <span>Comments</span>
-                </div>
+              <h2 class="md-toolbar-tools">
+                <a href="#"><span>Calendar</span></a>
+                <a href="#"><span>Event List</span></a>
+                <a href="#"><span>Event</span></a>
+              </h2>
             </md-toolbar>
-        </div>
+          </md-content>
+        </nav>
 
-        <div layout="row"><comment-list></comment-list></div>
-        <div id="form"><comment-form></comment-form></div>
+        <!-- Load application views here -->
+        <section ng-view>
 
-</div>
+        </section>
 
-<script src="assets/vendor/angular.js"></script>
-<script src="assets/vendor/angular-animate.js"></script>
-<script src="assets/vendor/angular-aria.js"></script>
-<script src="assets/vendor/angular-material.js"></script>
-<script src="assets/vendor/angular-mocks.js"></script>
-<script src="app/app.js"></script>
-<script src="app/comments/module/commentsModule.js"></script>
-<script src="app/comments/controllers/commentsController.js"></script>
-<script src="app/comments/services/commentService.js"></script>
-<script src="app/comments/directives/commentList.js"></script>
-<script src="app/form/directives/commentForm.js"></script>
-<script src="app/post/directives/blogPost.js"></script>
-</body>
+        <script src="assets/vendor/angular.js"></script>
+        <script src="assets/vendor/angular-animate.js"></script>
+        <script src="assets/vendor/angular-aria.js"></script>
+        <script src="assets/vendor/angular-material.js"></script>
+        <script src="assets/vendor/angular-mocks.js"></script>
+        <script src="assets/vendor/angular-route.js"></script>
+        <script src="assets/vendor/ngStorage.js"></script>
+        <script src="assets/vendor/moment.js"></script>
+
+        <!-- Load main application file-->
+        <script src="app/app.js"></script>
+
+        <!-- Load calendar module -->
+        <script src="../app/calendar/calendar.module.js"></script>
+        <script src="../app/calendar/services/month.service.js"></script>
+        <script src="../app/calendar/controllers/month.controller.js"></script>
+        <script src="../app/calendar/controllers/day.controller.js"></script>
+
+        <!-- Load comments module -->
+        <script src="app/comments/module/commentsModule.js"></script>
+        <script src="app/comments/controllers/commentsController.js"></script>
+        <script src="app/comments/services/commentService.js"></script>
+        <script src="app/comments/directives/commentList.js"></script>
+        <script src="app/form/directives/commentForm.js"></script>
+        <script src="app/post/directives/blogPost.js"></script>
+
+    </body>
 </html>
