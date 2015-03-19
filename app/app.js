@@ -7,8 +7,7 @@
     'calendar',
     'CommentsModule',
     'CommentForm',
-    'PostBody',
-    //'events'
+    'event'
   ])
   .config(function ($routeProvider, $mdThemingProvider) {
 
@@ -20,7 +19,7 @@
         controllerAs: 'register'
       })
       .when('/calendar/:month_id/:day_id', {
-        templateUrl: './app/events/partials/events.partial.html',
+        templateUrl: './app/events-list/partials/events-page.html',
         controller: 'EventController',
         controllerAs: 'eventList'
       })
@@ -35,8 +34,8 @@
 
     // Create a theme for the application
     $mdThemingProvider.theme('default')
-      .primaryPalette('blue-grey')
-      .accentPalette('light-blue');
-    });
+    .primaryPalette('teal')
+    .accentPalette('light-blue');
+  });
 
 }());

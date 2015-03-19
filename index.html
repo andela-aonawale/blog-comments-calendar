@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="en" ng-app="app">
     <head>
         <meta charset="UTF-8">
@@ -48,12 +49,16 @@
         <script src="app/calendar/controllers/day.controller.js"></script>
 
         <!-- Load comments module -->
-        <script src="app/comments/module/commentsModule.js"></script>
-        <script src="app/comments/controllers/commentsController.js"></script>
-        <script src="app/comments/services/commentService.js"></script>
-        <script src="app/comments/directives/commentList.js"></script>
+        <script src="app/comments/comment.module.js"></script>
+        <script src="app/comments/controllers/comment.controller.js"></script>
+        <script src="app/comments/services/comment.service.js"></script>
+        <script src="app/comments/directives/comment.list.js"></script>
         <script src="app/form/directives/commentForm.js"></script>
-        <script src="app/post/directives/blogPost.js"></script>
+
+        <!-- Events list feature script files-->
+        <script src="app/events-list/events.list.module.js"></script>
+        <script src="app/events-list/controllers/event.list.controller.js"></script>
 
     </body>
+
 </html>
