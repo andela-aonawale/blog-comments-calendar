@@ -29,30 +29,4 @@ angular.module('calendar')
       MonthService.goToEventList(register.selectedMonth, dayID);
     };
 
-    // register.showEventModal = function (ev, dayID, eventID, editing, adding) {
-    //   if (dayID) {
-    //     MonthService.setCurrentMonth(register.selectedMonth);
-    //     MonthService.setCurrentDay(dayID);
-    //     $mdDialog.show({
-    //       controller: 'DayController',
-    //       controllerAs: 'register',
-    //       templateUrl: './app/event/partials/new.event.partial.html',
-    //       targetEvent: ev,
-    //       locals: {
-    //         currentEvent: eventID,
-    //         editing: editing,
-    //         adding: adding
-    //       }
-    //     })
-    //     .then(function (answer) {
-
-    //     },
-    //     function () {
-
-    //     });
-    //   } else {
-    //     return false;
-    //   }
-    // };
-
   }]);
