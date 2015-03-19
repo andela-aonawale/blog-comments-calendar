@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('calendar')
-  .controller('DayController', ['MonthService', 'currentEvent', 'editing', 'adding', '$scope', function (MonthService, currentEvent, editing, adding, $scope) {
+  .controller('DayController', ['MonthService', 'currentEvent', function (MonthService, currentEvent) {
     var register = this;
 
     register.selectedMonth = MonthService.getCurrentMonth();
