@@ -9,17 +9,17 @@
                 </md-toolbar>
                 <md-input-container>
                     <label>Ttile</label>
-                    <input type="text" required>
+                    <input type="text" ng-model="newEventCtrl.event.title" required>
                 </md-input-container>
                 <md-input-container>
                     <label>Author</label>
-                    <input type="text" required>
+                    <input type="text" ng-model="newEventCtrl.event.author" required>
                 </md-input-container>
                 <md-input-container>
                     <label>Description</label>
-                    <textarea></textarea>
+                    <textarea ng-model="newEventCtrl.event.description"></textarea>
                 </md-input-container>
-                <md-button layout-fill layout-align="end center" class="md-primary md-raised">Add</md-button>
+                <md-button ng-click="newEventCtrl.addEvent(newEventCtrl.event)" layout-fill layout-align="end center" class="md-primary md-raised">Add</md-button>
        </form>
     </div>
 </md-dialog>
