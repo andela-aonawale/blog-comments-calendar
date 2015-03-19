@@ -1,18 +1,24 @@
 /**
  * Created by ahmedOnawale on 3/19/15.
  */
-angular.module('event')
-    .controller('EventListCtrl', ['$mdDialog', function($mdDialog){
+angular.module('eventlist')
+    .controller('EventListController', ['$mdDialog', 'MonthService', function($mdDialog, MonthService){
     this.date = new Date();
     function Makedialog(){
         return function(ev){
             $mdDialog.show({
                 controller: 'NewEventController as newEventCtrl',
-                templateUrl: '../partials/add-event.html',
+                templateUrl: './app/events-list/partials/add-event.html',
                 targetEvent: ev
 
             });
         };
     }
+        this.events = MonthService.getEvents();
+        this.currentDay = MonthService.getCurrentDay();
+        this.Months = MonthService.getMonths();
+        this.currentMonth = this.Months[MonthService.getCurrentMonth()];
+
+
     this.showEventDialog = Makedialog();
 }]);
