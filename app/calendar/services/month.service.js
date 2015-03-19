@@ -2,8 +2,10 @@ angular.module('calendar')
   .factory('MonthService', ['$http', '$localStorage', '$location', function ($http, $localStorage, $location) {
 
   return {
+    // covered
     today: null,
 
+    // covered
     init: function () {
       this.today = moment();
       if (!$localStorage.calendar) {
@@ -12,6 +14,7 @@ angular.module('calendar')
       }
     },
 
+    // covered
     getMonths: function () {
       return ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     },
@@ -83,6 +86,7 @@ angular.module('calendar')
       this.today.set('month', monthID);
     },
 
+    // covered
     getCurrentDay: function () {
       return this.today.date();
     },
@@ -94,6 +98,7 @@ angular.module('calendar')
       return this.getCurrentDay() - 1 + firstDayOffset;
     },
 
+    // covered
     setCurrentDay: function (dayID) {
       this.today.set('date', dayID);
     },
