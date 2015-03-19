@@ -100,6 +100,7 @@ angular.module('calendar')
 
     goToEventList: function (monthID, dayID) {
       if (angular.isNumber(dayID)) {
+        this.setCurrentDay(dayID);
         $location.path('calendar/' + monthID + '/' + dayID);
       }
     }
