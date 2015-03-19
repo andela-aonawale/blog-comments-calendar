@@ -7,7 +7,7 @@
     'calendar',
     'CommentsModule',
     'CommentForm',
-    'event'
+    'eventlist'
   ])
   .config(function ($routeProvider, $mdThemingProvider) {
 
@@ -20,7 +20,7 @@
       })
       .when('/calendar/:month_id/:day_id', {
         templateUrl: './app/events-list/partials/events-page.html',
-        controller: 'EventController',
+        controller: 'EventListController',
         controllerAs: 'eventList'
       })
       .when('/calendar/:month_id/:day_id/events/:event_id', {
