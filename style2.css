@@ -1,0 +1,108 @@
+
+html {
+    font-size: 10px;
+    background-color: #03A9F4;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+    font-family: RobotoDraft, Roboto, 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #f8f8f8;
+    background-color: #03A9F4;
+}
+.title{
+    margin: 20px 0 0 20px;
+}
+.title img{
+    width: 50px;
+    height: 50px;
+}
+.title-text{
+    margin: -20px 0 0 450px;
+}
+.date{
+    margin: -15px 0 0 400px;
+    font-size: 18px;
+}
+
+
+
+
+
+
+h1 {
+    margin: .67em 0;
+    font-size: 2em;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+h1 {
+    margin: .67em 0;
+    font-size: 2em;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+h1{
+    font-size: 36px;
+}
+h2{
+    font-size: 30px;
+}
+h3{
+    font-size: 24px;
+}
+h4{
+    font-size: 18px;
+}
+h5{
+    font-size: 14px;
+}
+h6 {
+    font-size: 12px;
+}

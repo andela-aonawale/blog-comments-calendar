@@ -1,0 +1,59 @@
+.card{
+    margin: 30px 0 0 35px;
+    width: 380px;
+    height: 300px;
+}
+.toolbar{
+    height: 60px;
+    background-color: #607D8B;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    display: inline-block;
+}
+.toolbar-icon{
+    margin: 2px 0 0 5px;
+    width: 24px;
+    height: 24px;
+}
+#add-btn{
+    margin: 0 -640px 0 0;
+    float: right;
+    color: #ffffff;
+    background-color: #607D8B;
+}
+.thumbs{
+    margin: 10px 0 0 10px;
+    display: inline-block;
+}
+.comment{
+    margin: 10px 5px 0 0;
+    float: right;
+    display: inline-block;
+    color: #ffffff;
+}
+.title{
+    display: inline-block;
+    margin-left: 20px;
+}
+.title img{
+    width: 40px;
+    height: 40px;
+}
+#title-text{
+    margin: 0 0 2px 20px;
+    font-size: 25px;
+}
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: #777;
+    border-radius: 15px;
+}
