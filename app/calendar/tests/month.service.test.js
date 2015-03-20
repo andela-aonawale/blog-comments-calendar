@@ -28,17 +28,24 @@ describe('MonthService', function () {
       expect(MonthService.today).toBe(null);
     });
 
+<<<<<<< HEAD
+    it('should set the value of today to the current day', function () {
+=======
     it('should set a value to today when initialized', function () {
+>>>>>>> develop
       MonthService.init();
       expect(MonthService.today).not.toBe(null);
     });
 
+<<<<<<< HEAD
+=======
     it('should set the value of today to the current day', function () {
       var today = moment();
       MonthService.init();
       expect(MonthService.today.date()).toEqual(today.date());
     });
 
+>>>>>>> develop
     it('should create a localStorage item upon initialization', inject(function ($localStorage) {
       MonthService.init();
       expect($localStorage.calendar).not.toBe(null);
@@ -48,6 +55,8 @@ describe('MonthService', function () {
       MonthService.init();
       expect(MonthService.setDays).toHaveBeenCalled();
     });
+<<<<<<< HEAD
+=======
   });
 
   // Test suite to check the month names
@@ -88,6 +97,7 @@ describe('MonthService', function () {
       MonthService.setCurrentMonth();
     });
 
+>>>>>>> develop
   });
 
 });
