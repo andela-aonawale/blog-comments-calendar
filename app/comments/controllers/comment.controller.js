@@ -10,6 +10,7 @@ angular.module('CommentsModule')
 
         commentController.addComment = function (commentData) {
             var newComment = {};
+
             newComment.name = commentData.name;
             newComment.email = commentData.email;
             newComment.text = commentData.text;
