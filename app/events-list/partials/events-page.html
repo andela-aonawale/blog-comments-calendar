@@ -25,7 +25,7 @@
 
     <md-card layout="row" layout-align="center end" class="card" ng-repeat="prop in eventList.events">
         <md-card-content>
-            <h2>{{prop.title}}</h2>
+            <h2 ng-click="eventList.goToEvent($index)">{{prop.title}}</h2>
             <p>{{prop.description}}</p>
         </md-card-content>
 
