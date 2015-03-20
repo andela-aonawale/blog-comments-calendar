@@ -34,8 +34,12 @@
 
     // Create a theme for the application
     $mdThemingProvider.theme('default')
-    .primaryPalette('teal')
-    .accentPalette('light-blue');
+    .primaryPalette('red', {
+      'default': '300'
+    })
+    .accentPalette('teal', {
+      'default': '300'
+    });
   });
 
 }());
