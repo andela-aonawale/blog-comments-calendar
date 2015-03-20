@@ -140,10 +140,12 @@ angular.module('calendar')
       $localStorage.calendar[this.getCurrentMonth()][this.getDayIndex()].events.push(eventData);
     },
 
+    // TODO
     saveEvent: function (monthID, dayID, eventID, eventData) {
       $localStorage.calendar[monthID].days[dayID].events[eventID] = eventData;
     },
 
+    // TODO
     removeEvent: function (eventID) {
       $localStorage.calendar[this.getCurrentMonth()][this.getDayIndex()].events.splice(eventID, 1);
 
