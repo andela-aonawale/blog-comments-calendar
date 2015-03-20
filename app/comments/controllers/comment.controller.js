@@ -24,4 +24,6 @@ angular.module('CommentsModule')
     this.remVote = function(com){
         CommentService.remVote(com);
     };
+
+
 }]);
