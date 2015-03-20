@@ -5,9 +5,7 @@
     <md-content>
       <md-toolbar>
         <h2 class="md-toolbar-tools">
-          <a href="#"><span>Calendar</span></a>
-          <a href="#"><span>Event List</span></a>
-          <a href="#"><span>Event</span></a>
+          <a href="#"><span>Candelar</span></a>
         </h2>
       </md-toolbar>
     </md-content>
@@ -47,15 +45,13 @@
         </div>
 
         <md-grid-list
-            md-cols-gt-md="7" md-row-height="1:1" md-gutter="4px">
+            md-cols-gt-md="7" md-row-height="128px" md-gutter="4px">
           <md-grid-tile
-              class="grey"
+              ng-class="{highlighted: day.events.length > 0, grey: day.events.length <= 0}"
               ng-repeat="day in register.days"
               ng-click="register.goToEventList(day.id)">
 
-              <md-subheader class="md-accent" ng-repeat="event in day.events">{{ event.title }}</md-subheader>
-
-              <md-grid-tile-footer><h3>{{ day.id }}</h3></md-grid-tile-footer>
+              <h3>{{ day.id }}</h3>
 
           </md-grid-tile>
         </md-grid-list>
