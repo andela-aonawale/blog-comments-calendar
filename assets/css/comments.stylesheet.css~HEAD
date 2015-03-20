@@ -1,0 +1,19 @@
+
+
+#body{
+    background-color: #03A9F4;
+}
+.ctitle{
+    margin: 20px 0 0 20px;
+}
+.ctitle img{
+    width: 50px;
+    height: 50px;
+}
+.ctitle-text{
+    margin: -20px 0 0 450px;
+}
+.cdate{
+    margin: -15px 0 0 400px;
+    font-size: 18px;
+}

@@ -1,0 +1,54 @@
+
+<div layout="row">
+
+    <md-toolbar flex="25">
+        <div class="md-toolbar-tools">
+            <div class="title">
+                <img ng-src="./assets/font/material-design-icons/ic_arrow_back_white_48dp.png"/>
+            </div>
+                <span id="title-text"><h3>Events</h3></span>
+        </div>
+    </md-toolbar>
+
+    <div layout="row" layout-fill>
+        <md-toolbar>
+            <div layout-fill class="md-toolbar-tools">
+                <span>{{eventList.currentMonth}}, {{eventList.currentDay}}</span>
+                <div>
+                    <md-button class="md-accent md-raised md-hue-1" id="add-btn" ng-click="eventList.showEventDialog()">Add Event</md-button>
+                </div>
+            </div>
+        </md-toolbar>
+    </div>
+</div>
+<div layout="row" layout-wrap>
+
+    <md-card layout="row" layout-align="center end" class="card" ng-repeat="prop in eventList.events">
+        <md-card-content>
+            <h2>{{prop.title}}</h2>
+            <p>{{prop.description}}</p>
+        </md-card-content>
+
+        <div flex class="toolbar" layout-align="start end">
+            <div class="thumbs"><md-button class="md-primary">
+                <span class="badge">23</span><img class="toolbar-icon" ng-src="./assets/font/material-design-icons/ic_thumb_up_white_18dp.png"/>
+                <span class="badge">6</span><img class="toolbar-icon" ng-src="./assets/font/material-design-icons/ic_thumb_down_white_24dp.png"/></md-button>
+            </div>
+            <div class="comment">
+                <md-button><span class="badge">51</span>Comments</md-button>
+            </div>
+        </div>
+    </md-card>
+
+    <!--<md-card layout="row" layout-align="center end" class="card">
+    <div flex class="toolbar" layout-align="start end">
+        <div class="thumbs"><md-button class="md-primary">
+            <span class="badge">23</span><img class="toolbar-icon" ng-src="./assets/font/material-design-icons/ic_thumb_up_white_18dp.png"/>
+            <span class="badge">6</span><img class="toolbar-icon" ng-src="./assets/font/material-design-icons/ic_thumb_down_white_24dp.png"/></md-button>
+        </div>
+        <div class="comment">
+            <md-button><span class="badge">51</span>Comments</md-button>
+        </div>
+    </div>
+    </md-card>-->
+</div>
