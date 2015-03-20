@@ -1,9 +1,13 @@
+<md-content>
 
 <md-toolbar layout="row"  ng-init="hidecard = true;">
+
     <div>
         <img class="comment-pg-back-btn" ng-src="./assets/font/material-design-icons/ic_arrow_back_white_48dp.png"/>
     </div>
-    <h1 style="margin: 10px 0 0 450px">Stand Up</h1>
+
+    <h1 class="comments-page-title">{{ commentCtrl.currentEvent.title }}</h1>
+
 </md-toolbar>
 
 <div layout="row" layout-fill>
@@ -20,11 +24,10 @@
 
         <div class="details">
             <h2>Title</h2><md-divider></md-divider>
-            <p>Stand Up</p><br/>
+            <p>{{ commentCtrl.currentEvent.title }}</p><br/>
             <h2>Description</h2><md-divider></md-divider>
-            <p> Any block may contain variable declarations. If a local variable or parameter in a method has the same name
-                as a field of a class, the field is "hidden"  until the block terminates execution -  this is called shadowing</p><br/>
-            <strong class="author">Author</strong><span>: Ahmed Onawale</span>
+            <p>{{ commentCtrl.currentEvent.description }}</p><br/>
+            <strong class="author">Author: </strong><span>{{ commentCtrl.currentEvent.author }}</span>
             <span class="leavecommentbtn"><md-button ng-click="hidecard = false" class="md-primary">Leave a comment</md-button></span>
         </div>
 
@@ -32,7 +35,7 @@
 
         <md-card ng-hide="hidecard">
 
-            <form name="commentForm" ng-submit="commentForm.$valid && commentCtrl.addComment()" novalidate>
+            <form name="commentForm" ng-click="commentCtrl.addComment(commentCtrl.comment)" novalidate>
                 <md-input-container>
                     <label>Comment</label>
                     <textarea name="commentBox" ng-model="commentCtrl.comment.text" required></textarea>

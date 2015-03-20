@@ -22,7 +22,7 @@
         controller: 'EventListController',
         controllerAs: 'eventList'
       })
-      .when('/calendar/:month_id/:day_id/:event_id', {
+      .when('/calendar/:month_id/:day_id/events/:event_id', {
         templateUrl: './app/comments/partials/comments.partial.html',
         controller: 'CommentsController',
         controllerAs: 'commentCtrl'
@@ -33,8 +33,12 @@
 
     // Create a theme for the application
     $mdThemingProvider.theme('default')
-    .primaryPalette('teal')
-    .accentPalette('light-blue');
+    .primaryPalette('red', {
+      'default': '300'
+    })
+    .accentPalette('teal', {
+      'default': '300'
+    });
   });
 
 }());

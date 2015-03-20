@@ -1,9 +1,13 @@
 angular.module('calendar')
   .factory('MonthService', ['$http', '$localStorage', '$location', function ($http, $localStorage, $location) {
 
+    // TODO: refactor this into separate services.
+
   return {
     // covered
     today: null,
+
+    currentEvent: null,
 
     // covered
     init: function () {
@@ -14,11 +18,23 @@ angular.module('calendar')
       }
     },
 
+    /*
+      Define getter methods.
+    */
+
+    // Get an array on all the month names.
+    // TODO: change the method signature
     // covered
     getMonths: function () {
       return ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     },
 
+    // Get the current month.
+    getCurrentMonth: function () {
+      return this.today.month();
+    },
+
+    // Get all the days in a particular month
     getDays: function () {
       if (!$localStorage.calendar[this.getCurrentMonth()]) {
         $localStorage.calendar[this.getCurrentMonth()] = this.setDays(this.getCurrentMonth());
@@ -26,10 +42,49 @@ angular.module('calendar')
       return $localStorage.calendar[this.getCurrentMonth()];
     },
 
+    // Get the current day
+    // covered
+    getCurrentDay: function () {
+      return this.today.date();
+    },
+
+    // Get a reference to the index position of the first day of the month.
+    getFirstDayID: function () {
+      return this.today.startOf('month').weekday();
+    },
+
+    // Get the index of the data corresponding to the current day.
+    getDayIndex: function () {
+      var currentDay = this.getCurrentDay();
+      var firstDayOffset = this.today.startOf('month').weekday();
+      this.setCurrentDay(currentDay);
+      return this.getCurrentDay() - 1 + firstDayOffset;
+    },
+
+    // Get all the events for a particular day in the current month.
     getEvents: function () {
       return $localStorage.calendar[this.getCurrentMonth()][this.getDayIndex()].events;
     },
 
+    getEvent: function (eventID) {
+      return $localStorage.calendar[this.getCurrentMonth()][this.getDayIndex()].events[eventID];
+    },
+
+    // Get all comments for a particular event.
+    getComments: function (eventID) {
+      return $localStorage.calendar[this.getCurrentMonth()][this.getDayIndex()].events[eventID].comments;
+    },
+
+    getCurrentEvent: function () {
+      return this.currentEvent;
+    },
+
+
+    /*
+      Define setter methods.
+    */
+
+    // Initialize the data in the current month.
     setDays: function (currentMonth) {
       this.setCurrentMonth(currentMonth);
       var i = 0; // initial value for month initializer loop
@@ -61,52 +116,63 @@ angular.module('calendar')
       return days;
     },
 
-    addEvent: function (eventData) {
-      $localStorage.calendar[this.getCurrentMonth()][this.getDayIndex()].events.push(eventData);
-    },
-
-    saveEvent: function (monthID, dayID, eventID, eventData) {
-      $localStorage.calendar[monthID].days[dayID].events[eventID] = eventData;
-    },
-
-    removeEvent: function (eventID) {
-      $localStorage.calendar[this.getCurrentMonth()][this.getDayIndex()].events.splice(eventID, 1);
-
-    },
-
-    getFirstDayID: function () {
-      return this.today.startOf('month').weekday();
-    },
-
-    getCurrentMonth: function () {
-      return this.today.month();
-    },
-
+    // Set the current month to the specified value
     setCurrentMonth: function (monthID) {
       this.today.set('month', monthID);
     },
 
-    // covered
-    getCurrentDay: function () {
-      return this.today.date();
-    },
-
-    getDayIndex: function () {
-      var currentDay = this.getCurrentDay();
-      var firstDayOffset = this.today.startOf('month').weekday();
-      this.setCurrentDay(currentDay);
-      return this.getCurrentDay() - 1 + firstDayOffset;
-    },
-
+    // Set the current day to the specified value
     // covered
     setCurrentDay: function (dayID) {
       this.today.set('date', dayID);
     },
 
+    setCurrentEvent: function (eventID) {
+      this.currentEvent = eventID;
+    },
+
+
+    /*
+      Define data manipulation methods.
+    */
+
+    addEvent: function (eventData) {
+      $localStorage.calendar[this.getCurrentMonth()][this.getDayIndex()].events.push(eventData);
+    },
+
+    // TODO
+    saveEvent: function (monthID, dayID, eventID, eventData) {
+      $localStorage.calendar[monthID].days[dayID].events[eventID] = eventData;
+    },
+
+    // TODO
+    removeEvent: function (eventID) {
+      $localStorage.calendar[this.getCurrentMonth()][this.getDayIndex()].events.splice(eventID, 1);
+
+    },
+
+    addComment: function (eventID, commentData) {
+      $localStorage.calendar[this.getCurrentMonth()][this.getDayIndex()].events[eventID].comments = $localStorage.calendar[this.getCurrentMonth()][this.getDayIndex()].events[eventID].comments || [];
+
+      $localStorage.calendar[this.getCurrentMonth()][this.getDayIndex()].events[eventID].comments.push(commentData);
+    },
+
+
+    /*
+      Define page-routing methods.
+    */
+
     goToEventList: function (monthID, dayID) {
       if (angular.isNumber(dayID)) {
         this.setCurrentDay(dayID);
         $location.path('calendar/' + monthID + '/' + dayID);
+      }
+    },
+
+    goToEvent: function (monthID, dayID, eventID) {
+      if (angular.isNumber(dayID) && angular.isNumber(eventID)) {
+        this.setCurrentEvent(eventID);
+        $location.path('calendar/' + monthID + '/' + dayID + '/events/' + eventID);
       }
     }
   };
