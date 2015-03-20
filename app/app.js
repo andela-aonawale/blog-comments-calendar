@@ -6,7 +6,6 @@
     'ngMaterial',
     'calendar',
     'CommentsModule',
-    'CommentForm',
     'eventlist'
   ])
   .config(function ($routeProvider, $mdThemingProvider) {
@@ -23,7 +22,7 @@
         controller: 'EventListController',
         controllerAs: 'eventList'
       })
-      .when('/calendar/:month_id/:day_id/events/:event_id', {
+      .when('/calendar/:month_id/:day_id/:event_id', {
         templateUrl: './app/comments/partials/comments.partial.html',
         controller: 'CommentsController',
         controllerAs: 'commentCtrl'

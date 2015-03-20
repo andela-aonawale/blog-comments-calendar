@@ -3,6 +3,7 @@
  */
 angular.module('CommentsModule')
     .controller('CommentsController', ['CommentService', function(CommentService){
+
         var commentController = this;
 
         commentController.currentEvent = CommentService.getEvent();
@@ -39,4 +40,5 @@ angular.module('CommentsModule')
         commentController.remVote = function(com){
             CommentService.remVote(com);
         };
+
 }]);
