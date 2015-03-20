@@ -6,7 +6,6 @@
     'ngMaterial',
     'calendar',
     'CommentsModule',
-    'CommentForm',
     'eventlist'
   ])
   .config(function ($routeProvider, $mdThemingProvider) {
