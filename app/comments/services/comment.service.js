@@ -2,27 +2,46 @@
  * Created by ammyreal on 3/13/15.
  */
 angular.module('CommentsModule')
-.factory('CommentService', [function(){
-        var data={};
-        data.allComment = [];
-        data.currentVote = 1;
-        data.add = function(arg){
-            data.newComment = arg;
-            data.allComment.push(data.newComment);
+    .factory('CommentService', ['MonthService', function (MonthService) {
+        var commentService = {};
+
+        commentService.currentEvent = MonthService.getCurrentEvent();
+        commentService.getCurrentEvent = function () {
+            return this.currentEvent;
         };
-        data.edit = function(arg){
+
+        commentService.setCurrentEvent = function (eventID) {
+            this.currentEvent = eventID;
+        };
+
+        commentService.getEvent = function () {
+            return MonthService.getEvent(this.getCurrentEvent());
+        };
+
+        commentService.allComment = [];
+        commentService.currentVote = 1;
+
+        commentService.getComments = function () {
+            return MonthService.getComments(this.getCurrentEvent());
+        };
+
+        commentService.addComment = function(commentData){
+            MonthService.addComment(this.getCurrentEvent(), commentData);
+        };
+
+        commentService.edit = function(arg){
             arg.hide = true;
             arg.show = false;
         };
-        data.save = function(arg){
+        commentService.save = function(arg){
             arg.hide = false;
             arg.show = true;
         };
-        data.delete = function(arg){
-            //data.allComment.splice(data.allComment.indexOf(arg), 1);
+        commentService.delete = function(arg){
+            //commentService.allComment.splice(commentService.allComment.indexOf(arg), 1);
             arg.shw = false;
         };
-        data.addVote = function(arg){
+        commentService.addVote = function(arg){
             if(arg.downvote === arg.upvote){
                 if(arg.upvote >= 1){
                     arg.upvote = 1;
@@ -38,7 +57,7 @@ angular.module('CommentsModule')
                 }
             }
         };
-        data.remVote = function(arg){
+        commentService.remVote = function(arg){
             if(arg.upvote === arg.downvote){
                 if(arg.downvote >= 1){
                     arg.downvote = 1;
@@ -54,5 +73,6 @@ angular.module('CommentsModule')
                 }
             }
         };
-        return data;
-}]);
+
+        return commentService;
+    }]);

@@ -26,34 +26,13 @@
     </div>
 </div>
 
-<div layout="row" layout-wrap>
-
-    <md-card layout="row" layout-align="center end" class="card" ng-repeat="prop in eventList.events">
-        <md-card-content>
-            <h2>{{prop.title}}</h2>
-            <p>{{prop.description}}</p>
-        </md-card-content>
-
-        <div flex class="toolbar" layout-align="start end">
-            <div class="thumbs"><md-button class="md-primary">
-                <span class="badge">23</span><img class="toolbar-icon" ng-src="./assets/font/material-design-icons/ic_thumb_up_white_18dp.png"/>
-                <span class="badge">6</span><img class="toolbar-icon" ng-src="./assets/font/material-design-icons/ic_thumb_down_white_24dp.png"/></md-button>
-            </div>
-            <div class="comment">
-                <md-button><span class="badge">51</span>Comments</md-button>
-            </div>
-        </div>
-    </md-card>
-
-</div>
-
 
 <div layout="row" layout-wrap>
     <div class="card" ng-repeat="prop in eventList.events">
         <md-card>
             <div layout="column" class="card-div">
                 <span class="card-content">
-                    <md-button><span class="card-title">{{prop.title}}</span></md-button><md-divider></md-divider>
+                    <md-button><span ng-click="eventList.goToEvent($index)" class="card-title">{{prop.title}}</span></md-button><md-divider></md-divider>
                     <p><span layout-wrap class="card-des">{{prop.description}}</span></p>
                 </span>
             </div>

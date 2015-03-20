@@ -48,6 +48,7 @@ angular.module('eventlist')
         eventList.showEventDialog = Makedialog();
 
         eventList.goToEvent = function (eventID) {
+            console.log('jdajhbd');
             MonthService.goToEvent(eventList.currentMonth, eventList.currentDay, eventID);
         };
 

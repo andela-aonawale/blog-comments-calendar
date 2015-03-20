@@ -35,7 +35,7 @@
 
         <md-card ng-hide="hidecard">
 
-            <form name="commentForm" ng-click="commentCtrl.addComment(commentCtrl.comment)" novalidate>
+            <form name="commentForm"  ng-submit="commentCtrl.addComment(commentCtrl.comment)" novalidate>
                 <md-input-container>
                     <label>Comment</label>
                     <textarea name="commentBox" ng-model="commentCtrl.comment.text" required></textarea>

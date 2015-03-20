@@ -152,6 +152,7 @@ angular.module('calendar')
     },
 
     addComment: function (eventID, commentData) {
+      console.log('dddddddddd');
       $localStorage.calendar[this.getCurrentMonth()][this.getDayIndex()].events[eventID].comments = $localStorage.calendar[this.getCurrentMonth()][this.getDayIndex()].events[eventID].comments || [];
 
       $localStorage.calendar[this.getCurrentMonth()][this.getDayIndex()].events[eventID].comments.push(commentData);
@@ -170,7 +171,9 @@ angular.module('calendar')
     },
 
     goToEvent: function (monthID, dayID, eventID) {
+      console.log(eventID);
       if (angular.isNumber(dayID) && angular.isNumber(eventID)) {
+
         this.setCurrentEvent(eventID);
         $location.path('calendar/' + monthID + '/' + dayID + '/events/' + eventID);
       }
