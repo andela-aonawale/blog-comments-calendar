@@ -6,7 +6,10 @@
     'ngMaterial',
     'calendar',
     'CommentsModule',
+<<<<<<< HEAD
     'CommentForm',
+=======
+>>>>>>> develop
     'eventlist'
   ])
   .config(function ($routeProvider, $mdThemingProvider) {
@@ -34,8 +37,17 @@
 
     // Create a theme for the application
     $mdThemingProvider.theme('default')
+<<<<<<< HEAD
     .primaryPalette('teal')
     .accentPalette('light-blue');
+=======
+    .primaryPalette('red', {
+      'default': '300'
+    })
+    .accentPalette('teal', {
+      'default': '300'
+    });
+>>>>>>> develop
   });
 
 }());

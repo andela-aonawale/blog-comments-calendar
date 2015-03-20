@@ -1,4 +1,4 @@
-<form name="commentForm" ng-submit="commentForm.$valid && commentCtrl.addComment()" novalidate>
+<form name="commentForm" ng-submit="commentForm.$valid && commentCtrl.addComment(commentCtrl.comment)" novalidate>
     <md-input-container>
         <label>Leave a comment</label>
         <textarea name="commentBox" ng-model="commentCtrl.comment.text" required></textarea>

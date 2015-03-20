@@ -1,7 +1,25 @@
 .card{
-    margin: 30px 0 0 35px;
-    width: 380px;
-    height: 300px;
+    width: 400px;
+    height: 380px;
+    margin: 20px 0 10px 20px;
+}
+.card-div{
+    height: 320px;
+}
+.card-content{
+    padding: 20px;
+    text-align: center;
+}
+.card-title{
+    margin: .67em 0;
+    font-size: 3em;
+    font-family: RobotoDraft, Roboto, 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    color: #607D8B;
+}
+.card-des{
+    font-size: 16px;
+    width: 350px;
 }
 .toolbar{
     height: 60px;
@@ -19,7 +37,6 @@
     margin: 0 -640px 0 0;
     float: right;
     color: #ffffff;
-    background-color: #607D8B;
 }
 .thumbs{
     margin: 10px 0 0 10px;
@@ -40,7 +57,7 @@
     height: 40px;
 }
 #title-text{
-    margin: 0 0 2px 20px;
+    margin: 0 0 5px 20px;
     font-size: 25px;
 }
 .badge {
@@ -57,3 +74,11 @@
     background-color: #777;
     border-radius: 15px;
 }
+.comment-pg-back-btn{
+    margin: 10px 0 0 30px;
+    height:45px; width:45px;
+}
+.comments-page-title{
+    margin: 10px 0 0 450px;
+}
+
