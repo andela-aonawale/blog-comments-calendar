@@ -7,6 +7,8 @@ angular.module('calendar')
     // covered
     today: null,
 
+    currentEvent: null,
+
     // covered
     init: function () {
       this.today = moment();
@@ -64,6 +66,19 @@ angular.module('calendar')
       return $localStorage.calendar[this.getCurrentMonth()][this.getDayIndex()].events;
     },
 
+    getEvent: function (eventID) {
+      return $localStorage.calendar[this.getCurrentMonth()][this.getDayIndex()].events[eventID];
+    },
+
+    // Get all comments for a particular event.
+    getComments: function (eventID) {
+      return $localStorage.calendar[this.getCurrentMonth()][this.getDayIndex()].events[eventID].comments;
+    },
+
+    getCurrentEvent: function () {
+      return this.currentEvent;
+    },
+
 
     /*
       Define setter methods.
@@ -112,6 +127,10 @@ angular.module('calendar')
       this.today.set('date', dayID);
     },
 
+    setCurrentEvent: function (eventID) {
+      this.currentEvent = eventID;
+    },
+
 
     /*
       Define data manipulation methods.
@@ -130,6 +149,12 @@ angular.module('calendar')
 
     },
 
+    addComment: function (eventID, commentData) {
+      $localStorage.calendar[this.getCurrentMonth()][this.getDayIndex()].events[eventID].comments = $localStorage.calendar[this.getCurrentMonth()][this.getDayIndex()].events[eventID].comments || [];
+
+      $localStorage.calendar[this.getCurrentMonth()][this.getDayIndex()].events[eventID].comments.push(commentData);
+    },
+
 
     /*
       Define page-routing methods.
@@ -144,6 +169,7 @@ angular.module('calendar')
 
     goToEvent: function (monthID, dayID, eventID) {
       if (angular.isNumber(dayID) && angular.isNumber(eventID)) {
+        this.setCurrentEvent(eventID);
         $location.path('calendar/' + monthID + '/' + dayID + '/events/' + eventID);
       }
     }
